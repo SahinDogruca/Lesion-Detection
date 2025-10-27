@@ -154,8 +154,8 @@ def train_model(data_yaml_path, model_size="n", epochs=100, imgsz=1280, batch=8)
         translate=0.1,  # hafif kaydırma
         scale=0.2,  # hafif ölçekleme
         flipud=0.0,  # dental'de üst-alt çevirme YAPMA
-        fliplr=0.5,  # sol-sağ çevirme OK
-        mosaic=0.5,  # mosaic augmentation
+        fliplr=0.0,  # sol-sağ çevirme OK
+        mosaic=0.0,  # mosaic augmentation
         # Project settings
         project="dental_segmentation",
         name=f"tooth_seg_yolov8{model_size}",
@@ -284,8 +284,8 @@ if __name__ == "__main__":
         data_yaml_path=DATA_YAML,
         model_size="n",  # başlangıç için nano
         epochs=100,
-        imgsz=1280,  # dental için uygun boyut
-        batch=8,  # GPU'nuza göre ayarlayın
+        imgsz=1024,  # dental için uygun boyut
+        batch=4,  # GPU'nuza göre ayarlayın
     )
 
     # 3. DEĞERLENDİRME
