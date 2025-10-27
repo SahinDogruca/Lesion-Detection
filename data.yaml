@@ -1,0 +1,7 @@
+train: /Users/sahindogruca/Desktop/code/ytü/semester-7/computerProject/data1/train/images
+val: /Users/sahindogruca/Desktop/code/ytü/semester-7/computerProject/data1/valid/images
+test: /Users/sahindogruca/Desktop/code/ytü/semester-7/computerProject/data1/test/images
+nc: 2
+names:
+  0: radiolucent
+  1: radiopaque
