@@ -284,7 +284,7 @@ if __name__ == "__main__":
         data_yaml_path=DATA_YAML,
         model_size="x",  # başlangıç için nano
         epochs=10,
-        imgsz=2048,  # dental için uygun boyut
+        imgsz=1024,  # dental için uygun boyut
         batch=4,  # GPU'nuza göre ayarlayın
     )
 
