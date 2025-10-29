@@ -283,7 +283,7 @@ if __name__ == "__main__":
     model, results = train_model(
         data_yaml_path=DATA_YAML,
         model_size="m",  # başlangıç için nano
-        epochs=50,
+        epochs=20,
         imgsz=1536,  # dental için uygun boyut
         batch=4,  # GPU'nuza göre ayarlayın
     )
