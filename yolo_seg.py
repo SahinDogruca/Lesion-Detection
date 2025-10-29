@@ -150,12 +150,12 @@ def train_model(data_yaml_path, model_size="n", epochs=100, imgsz=1280, batch=8)
         save=True,
         save_period=10,
         # Augmentation (dental X-ray için uygun)
-        degrees=10.0,  # hafif rotasyon
-        translate=0.1,  # hafif kaydırma
-        scale=0.2,  # hafif ölçekleme
+        degrees=5.0,  # hafif rotasyon
+        translate=0.05,  # hafif kaydırma
+        scale=0.15,  # hafif ölçekleme
         flipud=0.0,  # dental'de üst-alt çevirme YAPMA
         fliplr=0.5,  # sol-sağ çevirme OK
-        mosaic=0.5,  # mosaic augmentation
+        mosaic=0.1,  # mosaic augmentation
         # Project settings
         project="dental_segmentation",
         name=f"tooth_seg_yolov8{model_size}",
@@ -282,21 +282,24 @@ if __name__ == "__main__":
     print("\n2. Model eğitiliyor...")
     model, results = train_model(
         data_yaml_path=DATA_YAML,
-        model_size="x",  # başlangıç için nano
-        epochs=10,
-        imgsz=1024,  # dental için uygun boyut
+        model_size="m",  # başlangıç için nano
+        epochs=50,
+        imgsz=1536,  # dental için uygun boyut
         batch=4,  # GPU'nuza göre ayarlayın
     )
 
     # 3. DEĞERLENDİRME
     print("\n3. Model değerlendiriliyor...")
-    best_model_path = "dental_segmentation/tooth_seg_yolov8n/weights/best.pt"
+    # ✅ DÜZELTME: Doğru model yolunu kullan
+    best_model_path = f"{results.save_dir}/weights/best.pt"  # Dinamik yol
+    # veya manuel: "dental_segmentation/tooth_seg_yolov8x/weights/best.pt"
+
     metrics = validate_model(best_model_path, DATA_YAML)
 
     # 4. ÖRNEK TAHMİN
     print("\n4. Örnek tahmin yapılıyor...")
     test_image = f"{DATASET_PATH}/test/images/radiolucent_Patient-1.jpg"
-    results = predict_and_visualize(best_model_path, test_image)
+    results_pred = predict_and_visualize(best_model_path, test_image)
 
     print("\n" + "=" * 50)
     print("TÜM İŞLEMLER TAMAMLANDI!")
