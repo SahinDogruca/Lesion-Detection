@@ -282,20 +282,20 @@ if __name__ == "__main__":
     print("\n2. Model eğitiliyor...")
     model, results = train_model(
         data_yaml_path=DATA_YAML,
-        model_size="x",  # başlangıç için nano
-        epochs=10,
+        model_size="l",  # başlangıç için nano
+        epochs=100,
         imgsz=1024,  # dental için uygun boyut
         batch=4,  # GPU'nuza göre ayarlayın
     )
 
     # 3. DEĞERLENDİRME
     print("\n3. Model değerlendiriliyor...")
-    best_model_path = "dental_segmentation/tooth_seg_yolov8n/weights/best.pt"
+    best_model_path = "dental_segmentation/tooth_seg_yolov8l/weights/best.pt"
     metrics = validate_model(best_model_path, DATA_YAML)
 
     # 4. ÖRNEK TAHMİN
     print("\n4. Örnek tahmin yapılıyor...")
-    test_image = f"{DATASET_PATH}/test/images/radiolucent_Patient-1.jpg"
+    test_image = f"{DATASET_PATH}/test/images/A84.png"
     results = predict_and_visualize(best_model_path, test_image)
 
     print("\n" + "=" * 50)
