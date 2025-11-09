@@ -269,7 +269,7 @@ def batch_predict(model_path, images_dir, save_dir="predictions"):
 if __name__ == "__main__":
 
     # Veri seti yolu
-    DATASET_PATH = "/kaggle/input/session1/data1"
+    DATASET_PATH = "/kaggle/input/data-v2/data_v2"
 
     DATA_YAML = "data.yaml"
 

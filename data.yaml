@@ -1,7 +1,9 @@
-train: /kaggle/input/session1/data1/train/images/
-val: /kaggle/input/session1/data1/valid/images/
-test: /kaggle/input/session1/data1/test/images/
-nc: 2
-names:
-  0: radiolucent
-  1: radiopaque
+# YOLO Dataset Configuration
+path: /kaggle/input/data-v2/data_v2
+train: train/images
+val: valid/images
+test: test/images
+
+# Classes
+nc: 5
+names: ['dentigeroz kist', 'keratokist', 'radikuler kist', 'ameloblastoma', 'odontoma']
