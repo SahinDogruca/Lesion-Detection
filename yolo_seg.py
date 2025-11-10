@@ -133,7 +133,7 @@ def train_model(data_yaml_path, model_size="n", epochs=100, imgsz=1280, batch=8)
     """
 
     # Model yükle
-    model = YOLO(f"yolov12{model_size}-seg.pt")
+    model = YOLO(f"yolov12-seg.yaml")
 
     print(f"\n{'=' * 50}")
     print(f"MODEL EĞİTİMİ BAŞLIYOR - YOLOv8{model_size.upper()}-SEG")
