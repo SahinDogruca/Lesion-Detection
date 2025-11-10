@@ -228,6 +228,6 @@ pyrightconfig.json
 data1/
 dental_segmentation/
 
-*.pt
+
 
 # End of https://www.toptal.com/developers/gitignore/api/python,macos,visualstudiocode
