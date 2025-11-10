@@ -133,7 +133,7 @@ def train_model(data_yaml_path, model_size="n", epochs=100, imgsz=1280, batch=8)
     """
 
     # Model yükle
-    model = YOLO(f"yolov12-seg.yaml")
+    model = YOLO(f"yolo12.pt")
 
     print(f"\n{'=' * 50}")
     print(f"MODEL EĞİTİMİ BAŞLIYOR - YOLOv8{model_size.upper()}-SEG")
@@ -170,7 +170,7 @@ def train_model(data_yaml_path, model_size="n", epochs=100, imgsz=1280, batch=8)
         # Monitoring
         plots=True,
         verbose=True,
-        save_dir=f"dental_segmentation/tooth_seg_yolov8{model_size}",
+        save_dir=f"dental_segmentation/tooth_seg_yolov12",
     )
 
     print(f"\n{'=' * 50}")
@@ -283,14 +283,14 @@ if __name__ == "__main__":
     model, results = train_model(
         data_yaml_path=DATA_YAML,
         model_size="l",  # başlangıç için nano
-        epochs=50,
-        imgsz=1240,  # dental için uygun boyut
+        epochs=250,
+        imgsz=2048,  # dental için uygun boyut
         batch=4,  # GPU'nuza göre ayarlayın
     )
 
     # 3. DEĞERLENDİRME
     print("\n3. Model değerlendiriliyor...")
-    best_model_path = "dental_segmentation/tooth_seg_yolov12l/weights/best.pt"
+    best_model_path = "dental_segmentation/tooth_seg_yolov12/weights/best.pt"
     metrics = validate_model(best_model_path, DATA_YAML)
 
     # 4. ÖRNEK TAHMİN
