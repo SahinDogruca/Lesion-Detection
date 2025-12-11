@@ -1,9 +1,10 @@
 # YOLO Dataset Configuration
-path: /kaggle/input/data-v2/data_v2
+path: /kaggle/input/session1/data1
 train: train/images
 val: valid/images
 test: test/images
 
 # Classes
-nc: 5
-names: ['dentigeroz kist', 'keratokist', 'radikuler kist', 'ameloblastoma', 'odontoma']
+names:
+  0: radiolucent
+  1: radiopaque
